@@ -1,0 +1,152 @@
+{
+  "topBar" : {
+    "search" : "\"Gib deiner Frage mehr Gewicht\""
+  },
+  "userArea" : {
+    "noNotifications" : "<strong>0</strong> Benachrichtigungen",
+    "oneNotification" : "<strong>1</strong> Benachrichtigung",
+    "manyNotifications" : "<strong>{{count}}</strong> Benachrichtigungen",
+    "logout" : "abmelden",
+    "login" : "anmelden",
+    "moreNotifications" : "<strong>+{{count}}</strong> Benachrichtigungen"
+  },
+  "inlineQuestion" : {
+    "target" : "AN WEN STELLST DU DIE FRAGE?",
+    "question" : "FRAGE",
+    "notFound" : "nicht gefunden",
+    "search" : "Suche in sozialen Netzwerken"
+  },
+  "periodNav" : {
+    "question" : "offene Fragen",
+    "answer" : "beantwortete Fragen",
+    "24h" : "die wichtigste Frage des Tages",
+    "1w" : "die wichtigste Frage der Woche",
+    "1m" : "die wichtigste Frage des Monats",
+    "1y" : "die wichtigste Frage des Jahres",
+    "ever" : "die wichtigste Frage überhaupt",
+    "last" : "neu"
+  },
+  "questionBar" : {
+    "all" : {
+      "target" : "Asked to",
+      "user" : "Asked by",
+      "votes" : "Voted by",
+      "24h" : "die wichtigste Frage des Tages",
+      "1w" : "die wichtigste Frage der Woche",
+      "1m" : "die wichtigste Frage des Monats",
+      "1y" : "die wichtigste Frage des Jahres",
+      "ever" : "die wichtigste Frage überhaupt",
+      "last" : "die neusten Fragen"
+    },
+    "answer" : {
+      "target" : "Dieser Benutzer hat die Frage noch nicht beantwortet.",
+      "user" : "Keine veröffentlichten Fragen dieses Benutzers sind bislang beantwortet worden.",
+      "votes" : "Keine von diesem Benutzer unterstützte Fragen sind bislang beantwortet worden.",
+      "null" : "Auf diesem Gebiet sind bislang keine Fragen beantwortet worden.",
+      "24h" : "die wichtigste beantwortete Frage des Tages",
+      "1w" : "die wichtigste beantwortete Frage der Woche",
+      "1m" : "die wichtigste beantwortete Frage des Monats",
+      "1y" : "die wichtigste beantwortete Frage des Jahres",
+      "ever" : "die wichtigste beantwortete Frage überhaupt",
+      "last" : "die neusten beantworteten Fragen"
+    },
+    "question" : {
+      "target" : "für diesen Benutzer gibt es derzeit keine Frage",
+      "user" : "Dieser Benutzer hat derzeit keine Fragen veröffentlicht.",
+      "votes" : "there is no questions crowded by this user waiting to be answered. (???)",
+      "null" : "Auf diesem Gebiet gibt es derzeit keine Fragen.",
+      "24h" : "die an einem Tag meist votierte Frage",
+      "1w" : "die in einer Woche meist votierte Frage",
+      "1m" : "die in einem Monat meist votierte Frage",
+      "1y" : "die in einem Jahr meist votierte Frage",
+      "ever" : "die meist votierte Frage überhaupt",
+      "last" : "die neusten Fragen"
+    },
+    "search" : {
+      "null" : "Suchergebnisse: {{topic}}"
+    }
+  },
+  "buttons" : {
+    "cancel" : "abmelden",
+    "remove" : "löschen",
+    "accept" : "accept",
+    "close" : "Schließen"
+  },
+  "notifications" : {
+    "asked" : "[u:user] hat eine neue [q:question Frage] an [u:target] gestellt",
+    "askedToYou" : "[u:user] hat dir eine neue [q:question Frage] gestellt",
+    "answered" : "[u:target] hat die Frage beantwortet, die du ihm [u:user] gestellt hast",
+    "comment" : "[u:user] hat deinen [c:comment Kommentar] beantwortet",
+    "answeredToYou" : "[u:target] hat deine Frage beantwortet"
+  },
+  "login" : {
+    "enter" : "Melde dich an mit {{name}}.",
+    "email" : "Melde dich an mit deiner e-mail.",
+    "check" : "Überprüfe deinen Sicherheitscode.",
+    "title" : {
+      "enter" : "Melde dich bequem mit deinem Profil deines sozialen Netzwerkes an."
+    },
+    "fair" : {
+      "title" : "Verplichtung zu fairer Benutzung",
+      "first" : "Crowdference wird nie Informationen über dich oder deine Kontakte sammeln.",
+      "second" : "Crowdference wird nie unter deinem Namen veröffentlichen."
+    },
+    "legal" : {
+      "open" : "gesetzlicher Hinweis",
+      "title" : "Die Nutzung von Crowdference beinhaltet die Zustimmung zu unseren Geschäftsbedingungen.",
+      "resumen" : "Als Teil der Geschäftsbedingungen erkennst du an, dass du Crowdference unter deiner vollen Verantwortung benutzt, in Übereinstimmung mit der gültigen Gesetzgebung. Ebenso akzeptierst du die Benutzung der 'Creative Commons BY-SA licence'.",
+      "link" : "Lies die Geschäftsbedingungen."
+    }
+  },
+  "profile" : {
+    "managers" : "Benutzer, die im Namen dieses Profils handeln dürfen:",
+    "published" : "veröffentlichte Fragen",
+    "received" : "erhaltene Fragen",
+    "crowded" : "meine crowdit Punkte (???)"
+  },
+  "question" : {
+    "target" : "an:",
+    "answer" : "Antwort:",
+    "toAnswer" : "Antwort:",
+    "iAm" : "Ich bin {{name}}"
+  },
+  "share" : {
+    "text" : "Ich {{name}}möchte diese Frage beantworten."
+  },
+  "cookies" : {
+    "message" : "Wir benutzen cookies zu unser ständigen Verbesserung, dank unser 'Crowdference traffic analytics'. Wenn du nicht an unser Statistik teilnehmen möchtest, klicke auf 'reject' (ablehnen)."
+  },
+  "comments" : {
+    "title" : "Kommentare:",
+    "new" : "",
+    "placeholder" : ""
+  },
+  "name" : "Deutsch",
+  "searchBox" : {
+    "search" : "suchen"
+  },
+  "translate" : {
+    
+  },
+  "landing" : {
+    "info" : "<h1>Welcome to Crowdference</h1><p>In some occasions, the media can’t, or doesn’t want, or doesn’t know how to ask the questions about what really matters to us.</p><p>Through Crowdference you can pass directly your questions to the person or institution you want. Thanks to the support and dissemination of the community, they will answer these questions.</p><p>Improve your transparency by  participating in a continuous, horizontal and neutral wheel of masses.</p>",
+    "guest" : {
+      "title" : "Let’s have a look",
+      "button" : "guest"
+    },
+    "mail" : {
+      "title" : "log in with your email",
+      "button" : "login",
+      "confirm" : {
+        "title" : "confirmation",
+        "button" : "confirm"
+      }
+    },
+    "oauth" : {
+      "title" : "or with your public profile"
+    },
+    "safe" : "<h4>is it safe?</h4><p>Log in at Crowdference through a social network doesn’t allow Crowdference nor anybody: access your account, usurp your identity, obtain private information or publish on behalf of your name</p>",
+    "cookies" : "<h4>cookies</h4><p>Crowdference uses cookies to make anonymous  analyses of its usability. You can set your browser to disable them.</p>",
+    "terms" : "<h4>Legal terms</h4><p>The users-generated content is property of our users, who accept use the creativecommons' license  Attribution-ShareAlike</p>"
+  }
+}

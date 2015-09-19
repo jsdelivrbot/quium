@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h3 ng-if="!questions" class="modal-title">
+      Comprobando si existen preguntas similares:
+    </h3>
+    <h3 ng-if="questions" class="modal-title">
+      Preguntas similares encontradas:
+    </h3>
+</div>
+<div class="modal-body">
+  <div class="panel panel-default">
+    <div class="panel-body">  
+      <h4>Es mejor sumar que dividir.</h4>
+      <p>Si alguna de las siguientes preguntas se parece a la tuya, vótala y entra para ver los comentarios.</p>
+      <p>Es posible que hasta ya esté respondida :)</p>
+    </div>
+  </div>
+  <div ng-if="questions.length" class="panel panel-default">
+    <div class="panel-body">  
+      <div ng-if="questions.length" ng-repeat="question in questions track by question._id">
+        <question-card question="question"></question-card>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">Quiero publicar mi pregunta.</button>
+    <button class="btn btn-warning" ng-click="cancel()">No es necesario publicar mi pregunta.</button>
+</div>

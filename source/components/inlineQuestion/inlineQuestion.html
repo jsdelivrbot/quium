@@ -1,0 +1,65 @@
+<div id="inlineQuestion" ng-show="Area.permissions.ask || Area.custom.tryToAsk">
+
+  <input ng-if="!Area.custom.targets"
+    ng-keyup="enter($event)&&search()"
+    ng-hide="question.target.url"
+    ng-model="target"
+    typeahead="suggest for suggest in getSuggestions($viewValue)"
+    typeahead-loading="cargando"
+    typeahead-template-url="components/inlineQuestion/suggest.html"
+    typeahead-wait-ms="100"
+    typeahead-search="typesearch"
+    typeahead-on-select="target=select($model)"
+    placeholder="{{'inlineQuestion.target'|translate}}">
+  </input>
+
+  <div ng-if="Area.custom.targets" class="target clickable dropdown dropdown-toggle" ng-click="updateTargets()" ng-hide="question.target.url">
+    <div class="media">
+      <span class="close"><i class="fa fa-chevron-down"></i></span>
+      <div class="media-body">
+        <h4 class="media-heading">Selecciona el destinatario</h4>        
+      </div>
+    </div>
+    <ul class="dropdown-menu">
+      <li ng-repeat="target in targets">
+        <div class="suggest" ng-click="select(target)">
+          <div class="pull-left">
+            <img style="width:50px" class="media-object" ng-src="{{target.image}}" >
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{target.name}}</h4>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </li>
+    </ul>  
+  </div>
+  
+  <div class="target" ng-show="question.target.url">
+    <div class="media">
+      <span class="close" ng-click="chooseAgain()">&times;</span>
+      <div class="pull-left">
+        <img style="width:50px" class="media-object" ng-src="{{question.target.image}}" >
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{question.target.name || question.target.nick}}</h4>        
+      </div>
+    </div>
+  </div>
+  
+  <markdown-area 
+    ng-model="question.short" 
+    placeholder="{{'inlineQuestion.question'|translate}}" 
+    active="shortActive"  
+    editable="true"
+  ></markdown-area>
+
+  <div ng-class="{error:shortMaxLength<question.short.length}" class="info">{{shortMaxLength-question.short.length}}</div>
+  <div class="clearfix"></div>
+
+  <div class="footer">
+    <div ng-class="{error:question.short.length===0 || shortMaxLength<question.short.length || !question.target}" class="crowdIt clickable" ng-click="crowdIt()" ></div>
+  </div>
+
+
+</div>

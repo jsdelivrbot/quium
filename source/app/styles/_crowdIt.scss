@@ -1,0 +1,45 @@
+.crowdIt{
+  color:white;
+  border: 3px solid white;
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  background: $crowdIt;
+  text-align: center;
+  font-family:serif;
+  position:relative;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  &.error{
+    opacity:0.5;
+    cursor:not-allowed;
+  }
+}
+.crowdIt:after{
+  font-family:serif;
+  content: "it!";
+  font-size: 17px;
+  position: absolute;
+  left: 21px;
+  top: 24px;
+}
+.crowdIt:before{
+  font-family:serif;
+  content: "crowd";
+  font-size: 17px;
+  position: absolute;
+  left: 4px;
+  top: 7px;
+}
+
+.crowdIt.voted{
+  background:lighten($crowdIt,15%);
+}
+
+.crowdIt.voted:before{
+  content:"good";
+}
+.crowdIt.voted:after{
+  content:"job";
+}
+
+

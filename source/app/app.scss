@@ -1,0 +1,56 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,400italic|Merriweather+Sans&subset=latin-ext,latin);
+
+$fondosTitulosYBordes: #95bd1b;
+$fondoBar: #f7f7f7;
+$contestadas: #40b4a6;
+$verdeClarito: #d6e3ab;
+$fondoAvisos: #008830;
+$verdeOscuro: #006128;
+$azulSecundario: #68c5bf;
+$fondo: #e2ebc4;
+$crowdIt: #36a863;
+$otroVerde: #40b93c;
+$white: #fff;
+$grisFooter: #ebecec;
+$brand-primary: #97bf0d;
+$width: 1280px;
+$font-family-base: Merriweather Sans;
+$topBarHeight: 61px;
+$borderRadius: 6px;
+
+li.active *{
+  background:$fondosTitulosYBordes;
+}
+
+
+
+$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$fa-font-path: "/bower_components/font-awesome/fonts";
+
+@import 'bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import 'font-awesome/scss/font-awesome';
+
+/**
+ * App-wide Styles
+ */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+.modal-dialog{
+  margin-top:80px;
+}
+// injector
+// endinjector
+

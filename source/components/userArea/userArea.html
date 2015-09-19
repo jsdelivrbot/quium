@@ -1,0 +1,12 @@
+<div id="userArea">
+  <a ng-href="{{user._id ? ('/user/' + user._id + '/' + area.url) : '/sys/login'}}">
+    <img ng-src="{{user.image}}">
+  </a>
+  <div>
+    <a title="{{user.name}}" ng-href="{{user._id ? ('/user/' + user._id + '/' + area.url) : '/sys/login'}}" ng-bind="user.name"></a>
+    <a ng-show="user._id && user.notifications.length==0" translate="userArea.noNotifications"></a>
+    <notifications-bar></notifications-bar>
+    <choseUser></choseUser>
+    <a ng-show="user._id" ng-click="logout()" translate="userArea.logout"></a>
+  </div>
+</div>

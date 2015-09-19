@@ -1,0 +1,30 @@
+.paramsNav{
+  margin-top:15px;
+  border:2px solid $fondosTitulosYBordes;
+  color:$fondosTitulosYBordes;
+  border-radius:$borderRadius;
+  background:$fondoBar;
+  h4{
+    padding-left:15px
+  }
+  ul{
+/*
+    width:100%;
+*/
+  }
+  &>ul>li.active>a{
+    background:$fondosTitulosYBordes;
+  }
+  &>ul>li>a{
+    padding: 5px 15px
+  }
+  &.alternative{
+    color:$contestadas;
+    border:2px solid $contestadas;
+    &>ul>li.active>a{
+      background:$contestadas;
+    }
+  }
+}
+
+

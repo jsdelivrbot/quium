@@ -1,0 +1,70 @@
+.markdownArea{
+  min-height:4em;
+  position:relative;
+  background:$fondoBar;
+  .markdownAreaEdit{
+    visibility:hidden;
+    min-height:4em;
+    resize: none;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border:0;
+    margin:0;
+    padding:3px;
+    width:100%;
+  }
+
+  .markdownAreaView{
+    min-height:4em;
+    width:100%;
+    position:absolute;
+    padding:3px;
+/*
+    white-space:pre;
+*/
+    word-wrap: break-word;
+  }
+
+  .markdownAreaEditResize{
+    min-height:4em;
+    width:100%;
+    position:absolute;
+    padding:3px;
+/*
+    white-space:pre;
+*/
+    word-wrap: break-word;
+    visibility:hidden;
+  }
+
+  
+
+  &.editable{
+    cursor:pointer;
+    .markdownAreaView:after{
+      content: "✍";
+      font-size: 25px;
+      position: absolute;
+      top: 0;
+      right: 25px;
+      color: #999;
+    }
+  }
+
+
+}
+
+.markdownArea.active, .markdownArea.isEmpty.editable{
+  .markdownAreaEdit{
+    visibility:visible;
+  }
+  .markdownAreaView{
+    visibility:hidden;
+  }
+  .markdownAreaEditResize{
+    white-space:pre;
+  }
+
+}

@@ -1,0 +1,51 @@
+<div class="comment">
+  <div id="comment-{{comment.count}}" class="panel">
+    <div class="panel-body">
+      <div class="number">
+        <div class="votes" style="text-align:center">
+          <a ng-show="question.area.custom.tryToAsk || question.area.permissions.ask" ng-click="vote(comment, 1)"><i class="fa fa-plus"> </i></a><br/>
+          <a ng-click="showVotes(comment.votes)" ><span>{{comment.votes.count}}</span></a><br/>
+          <a ng-show="question.area.custom.tryToAsk || question.area.permissions.ask"ng-click="vote(comment, -1)"><i class="fa fa-minus"> </i></a><br/>
+        </div>
+      </div>
+      <div class="foto">
+        <img ng-click="goToComment(12)" _ng-click="goToUser(comment.user, question.area)" ng-src="{{comment.user.image}}"></img>
+      </div>
+      <div class="comment-content">
+        <div class="pull-left">
+          <a class="author" ng-click="respondTo(comment)"><b>#{{comment.count}}</b></a>
+          <a class="author"  ng-click="goToUser(comment.user, question.area)">
+            {{comment.user.name || comment.user.nick || '---'}} 
+          </a>
+        </div>
+        <div class="pull-right date">
+          {{comment.comment[index].timestamp | date}} 
+        </div>
+        <div class="clearfix"></div>
+        <article>
+          <div class="txt"> </div>
+        </article>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <a ng-show="question.area.permissions.ask || question.area.custom.tryToAsk" class="text-crowdIt" ng-click="toogleNewComment()">
+        <i ng-class="{'fa-rotate-270':status.respond}" class="fa fa-2x fa-reply"> </i>
+      </a>
+&nbsp;&nbsp;
+      <a class="text-crowdIt" ng-if="comment.children.length" ng-click="childrenToggle()">
+        <div style="display:inline-block;" class="fa-flip-vertical">
+          <i ng-class="{'fa-rotate-90':status.showChildren,'fa-rotate-180':!status.showChildren }" class="fa fa-2x fa-reply-all"> </i>
+        </div>
+        <span>{{comment.children.length}}</span>
+      </a>
+    </div>
+  </div>
+  <div collapse="!status.respond" class="children" >
+    <new-comment comment="comment.response" comments="comments" parent-status="status"></new-comment>
+  </div>
+  <div  collapse="!status.showChildren" class="children">
+    <div ng-if="status.showChildren!==undefined" ng-repeat="comment in comment.children track by comment._id">
+      <comment></comment>
+    </div>
+  </div>
+</div>

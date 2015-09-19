@@ -1,0 +1,100 @@
+.leftBarToggle{
+  display:none;
+  position: absolute;
+  font-size: 250%;
+  top: 14px;
+  left: 14px;
+}
+#crowdference{
+  @extend .left;
+  h1{
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight:normal;
+    font-size:37px;
+  }
+}
+#moto{
+  @extend .center;
+}
+#license{
+  display:none;
+  position: absolute;
+  right: 30px;
+}
+#topBar{
+  .links {
+    padding-left:350px;
+    padding-right:15px;
+    background:$white;
+    color:#555;
+    &>a{
+      padding:1ex;
+      line-height: 4ex;
+    }
+  }
+  color:$white;
+  width:100%;
+  position:fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background:$fondosTitulosYBordes;
+  .content{
+    height:$topBarHeight - 1;
+    *{
+      margin:0;
+      bottom:3px;
+    }
+  }
+
+  a.cleanLink{
+    text-decoration:none;
+    color:inherit;
+  }
+
+  .languages{
+    @extend .right;
+    .language-selector{
+      float:right;
+    }  
+  }
+
+}
+
+@media (max-width:1100px) and (min-width:550px){
+  #topBar .languages{
+    display:block;
+    width:auto;
+  }
+}
+
+@media (max-width:850px){
+  .leftBarToggle{
+    display:block;
+  }
+  #crowdference{
+    display:none;
+  }
+  #topBar{
+    .links {
+      padding-left:50px;
+      &>a{
+        padding:1ex;
+        line-height: 4ex;
+      }
+    }
+  }
+}
+
+@media (max-width:550px){
+  #topBar{
+    .links {
+      padding-left:15px;
+      &>a{
+        padding:0.5ex;
+        line-height: 2ex;
+      }
+    }
+  }
+}

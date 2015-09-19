@@ -1,0 +1,49 @@
+upstream crowdference.domus{
+    server 127.0.0.1:15901; // where to find the server
+}
+
+server {
+  listen 80;
+  server_name crowdference;
+
+
+  root /path/to/crowd/quium/build;
+
+  location / {
+    try_files $uri /index.html =404;
+  }
+
+  location /sitemap.txt {
+    proxy_set_header Host $http_host;
+    proxy_pass http://crowdference.domus/api$uri;
+  }
+
+
+  location /api {
+    proxy_set_header Host $http_host;
+    proxy_pass http://crowdference.domus;
+  }
+
+}
+
+
+server {
+  listen 80;
+  server_name dev.crowdference;
+
+  root /path/to/crowd/quium;
+
+  location /bower_components {
+    try_files $uri  =404;
+  }
+  location / {
+    try_files /source$uri /.tmp$uri /.tmp/index.html =404;
+  }
+
+  location /api {
+    proxy_set_header Host $http_host;
+    proxy_pass http://crowdference.domus;
+  }
+}
+
+

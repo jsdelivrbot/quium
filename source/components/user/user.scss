@@ -1,0 +1,83 @@
+#profile{
+  background:$fondosTitulosYBordes;
+  padding:30px;
+  margin-bottom:20px;
+  img{
+    margin-right:15px;
+    float:left;
+  }
+  h3, small{
+    color:$white;
+    padding-left:15px;
+    overflow:hidden;
+  }
+  .aboutMe{
+    overflow:hidden;
+    padding:15px;
+    background:#caeaa5;
+  }
+  
+}
+#profileNavigation{
+  margin-bottom:15px;
+  background:$fondosTitulosYBordes;
+  #mode{
+    border-bottom:5px solid $fondosTitulosYBordes;
+    width:100%;
+    height:75px;
+    #published{
+      background:$verdeOscuro;
+      width:33.33%;
+      height:75px;
+      text-align:center;
+    }
+    #mycrowdits{
+      background:$fondoAvisos;
+      width:33.33%;
+      height:75px;
+      text-align:center;
+    }
+    #received{
+      background:$otroVerde;
+      width:33.33%;
+      height:75px;
+      text-align:center;
+    }
+  }
+  #type{
+    width:100%;
+    height:75%;
+    #questions{
+      background:$contestadas;
+      width:50%;
+      height:75px;
+      text-align:center;
+    }
+    #answers{
+      background:$azulSecundario;
+      width:50%;
+      height:75px;
+      text-align:center;
+    }
+  }
+}
+
+@media (max-width:850px){
+  #profile img{
+    width: 150px;
+    margin-right: -150px;
+    max-width: 100%;
+  }
+  #profile>a{
+    background: rgba(0,0,0,0.2);
+    display: inline-block;
+    float: right;
+    max-width: 100%;
+  }
+  #profile .aboutMe{
+    display: inline-block;
+    float: right;
+    max-width: 100%;
+    background: rgba(250,250,250,0.4);
+  }
+}

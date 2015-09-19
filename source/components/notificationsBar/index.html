@@ -1,0 +1,17 @@
+<div class="">
+  <a href="notifications/view" ng-show="user.url && user.notifications.length==0" translate="userArea.noNotifications"></a>
+  <span ng-if="user.notifications.length" class="dropdown">
+    <a class="dropdown-toggle">
+      <span ng-show="user._id && user.notifications.length==1" translate="userArea.oneNotification"> </span>
+      <span ng-show="user._id && user.notifications.length>1 && !user.more" translate="userArea.manyNotifications" translate-values="{count : user.notifications.length}"></span>
+      <span ng-show="user._id && user.notifications.length>1 && user.more" translate="userArea.moreNotifications" translate-values="{count : user.notifications.length}"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li ng-repeat="notification in user.notifications track by notification._id">
+        <a notification="notification" read="removeNotification($index)"></a>
+      </li>
+      <li class="divider"></li>
+      <li><a href="notifications/view" translate="userArea.viewAllNotifications"></a></li>
+    </ul>
+  </span>
+</div>

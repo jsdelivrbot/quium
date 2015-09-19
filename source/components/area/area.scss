@@ -1,0 +1,26 @@
+#area{
+  @extend #profile;
+  .breadcrumb > li + li:before {
+    content: "";
+    color:$white;
+    padding:0;
+  }
+  .breadcrumb>li {
+    display:inline;
+  }
+  .suggest{
+    color:black;
+  }
+  .breadcrumb {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    background:$verdeOscuro;
+    color:$white;    
+  }
+  margin-bottom: 15px;
+  .aboutMe{
+    width:100%;
+  }
+}

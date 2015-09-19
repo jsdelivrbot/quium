@@ -1,0 +1,42 @@
+<div id="profile" ng-if="user._id">
+  <img  style="width:150px" ng-src="{{user.image}}">
+  <a target="_blank" ng-href="{{user.url}}">
+    <h3>
+      <i class="fa fa-external-link"></i> 
+      <span ng-bind="user.url"></span> 
+      <br>
+      <small ng-bind="user.name || user.nick || '---'"></small>
+    </h3>
+  </a>
+  <div ng-show="user.aboutMe" class="aboutMe" marked="user.aboutMe"></div>
+  <div class="clearfix"></div>
+
+  <div ng-if="user.managers!==undefined">
+    <hr>
+    <h4 class="clickable" ng-click="collapsed=!collapsed"><span translate="profile.managers"></span><i ng-class="collapsed?'fa-caret-up':'fa-caret-down'" class="fa"></i></h4>
+    <div collapse="!collapsed">
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="manager in user.managers">
+          <button ng-click="removeManager($index)" class="btn btn-danger pull-right" tooltip="{{'buttons.remove'|translate}}" ><i class="fa fa-times"></i></button>
+          <user-card user="manager"></user>
+        </li>
+        <li ng-if="user.managers.length<4" class="list-group-item" >
+
+          <div class="input-group">
+            <span class="input-group-addon">añadir</span>
+            <input
+              class="form-control"
+              ng-model="newManager"
+              typeahead="suggest for suggest in findUser($viewValue)"
+              typeahead-loading="cargando"
+              typeahead-template-url="/components/inlineQuestion/suggest.html"
+              typeahead-wait-ms="100"
+              typeahead-search="typesearch"
+              typeahead-on-select="addManager($model);$viewValue='';newManager=''"
+              placeholder="usuario">
+          </div>
+        </li>
+      </ul>          
+    </div>
+  </div>
+</div>

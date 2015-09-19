@@ -1,0 +1,24 @@
+<div class="questionCard" ng-class="{answer:question.isAnswered===true}">
+  <div class="media">
+    <a ng-click="goToUser(question.target, question.area)" class="pull-left"><img ng-src="{{question.target.image}}">
+    </a>
+    <div class="media-body">
+      <span class="media-heading">
+        <a ng-click="goToUser(question.target, question.area)">
+          <span class="text-primary" translate="question.target"></span>
+          <span ng-bind="question.target.name"></span>
+        </a>
+      </span>
+      <a ng-click="goToQuestion(question)">
+        <div class="questionArea">
+          <div class="serifa" style="color:#555" marked="question.question[question.question.length-1].short"></div>
+        </div>
+      </a>
+      <span class="date" class="pull-right" style="color:grey">{{question.questionTimestamp | date:'dd-MM-yyyy HH:mm'}} </span>
+    </div>
+  </div>
+  <span class="pull-right questionCardBar" href="#">
+    <span ng-click="showVotes(question.votes)" class="rank clickable">{{question.votes.count}}</span>
+    <div ng-show="question.area.custom.tryToAsk||question.area.permissions.ask" ng-click="vote()" ng-class="{voted:checkVoted()}" class="crowdIt clickable"></div>
+  </span>
+</div>

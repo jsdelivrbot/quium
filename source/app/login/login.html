@@ -1,0 +1,44 @@
+<div id="login">
+  <div id="landing">
+    <div class="info">
+      <div class="periodNav alternative" style="text-align:center"><h2><a target="_blank" href="http://blog.crowdference.org/feliz-dia-del-software-libre/"><countdown style="font-family:monospace" to="2015/09/19 12:00"></countdown></a></h2></div>
+      <div translate="landing.info">
+      </div>
+    </div>
+    <div class="login">
+      <div ng-hide="user">
+        <h4 ng-hide="user" translate="landing.guest.title"></h4>
+        <button ng-hide="user._id" class="btn btn-default" ng-click="guest()" translate="landing.guest.button"></button>
+      </div>
+
+      <div ng-show="user">
+        <user-card user="user"></user-card>
+      </div>
+      <div ng-hide="user && user.profile.type!=='email'">
+        <h4 translate="landing.mail.title"></h4>
+        <p>
+          <div class="input-group">
+            <input type="email" class="form-control" ng-model="email" >
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" ng-click="sendCode(email)" translate="landing.mail.button"></button>
+            </span>
+          </div>
+          <h4 ng-show="hmac && session" translate="landing.mail.confirm.title"></h4>
+          <div ng-show="hmac && session" class="input-group">
+            <input type="text" ng-model="code" class="form-control">
+            <span class="input-group-btn">
+              <a  target="_self"  class="btn btn-default" ng-href="/api/auth/email/{{code}}/{{hmac}}/{{session}}" translate="landing.mail.confirm.button"></a>
+            </span>
+          </div>
+        </p>
+      </div>
+      <h4 ng-if="anyOauth()" translate="landing.oauth.title" ></h4>
+      <a ng-if="oauth.url" ng-repeat = "oauth in oauths" target="_self" ng-href="{{oauth.url}}">
+        <img  class="clickable" ng-src="/assets/images/{{oauth.icon}}"/>
+      </a>
+      <div ng-if="anyOauth()" translate="landing.safe"></div>
+      <div ng-hide="login" translate="landing.cookies"></div>
+      <div translate="landing.terms"></div>
+    </div>
+  </div>
+</div>

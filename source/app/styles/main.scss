@@ -1,0 +1,321 @@
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('#{$fa-font-path}/fontawesome-webfont.eot?v=#{$fa-version}');
+  src: url('#{$fa-font-path}/fontawesome-webfont.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'),
+    url('#{$fa-font-path}/fontawesome-webfont.woff?v=#{$fa-version}') format('woff'),
+    url('#{$fa-font-path}/fontawesome-webfont.ttf?v=#{$fa-version}') format('truetype'),
+    url('#{$fa-font-path}/fontawesome-webfont.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
+  //src: url('#{$fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
+  font-weight: normal;
+  font-style: normal;
+}
+/* Put your CSS here */
+
+
+body{
+  &>.content{
+    margin-top:100px!important;
+  }
+  background-position:top center;
+  background-repeat:no-repeat;
+  &>*{
+    opacity:1;
+  }
+}
+
+a{
+  cursor:pointer;
+  color:inherit;
+  text-decoration:inherit;
+}
+
+
+/* OLD */
+
+.ngk-menu{
+  overflow-y:hidden !important;
+  &>ng-include>div{
+    padding-right: 15px
+  }
+}
+
+.rank{
+  position:relative;
+  .rankUp{
+    position:absolute;
+    top:-20px;
+    right:0;
+  }
+  .rankVotes{
+    cursor:default;
+    position:absolute;
+    top:20px;
+    right:0;
+    width:100%;
+  }
+}
+
+a{
+  cursor:pointer;
+}
+
+.help-steps{
+
+  text-align:center;
+  text-shadow: 0px 0px 50px black;
+
+  .step{
+  background-image:url(.//images/background.png);
+  background-repeat:no-repeat;
+  background-size:cover;
+    position:relative;
+    width: 200px;
+    height: 150px;
+    vertical-align: middle;
+    padding: 20px;
+    margin:20px;
+    display: inline-block;
+    i{
+      color: whitesmoke;
+    }
+    span{
+      color:black;
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      font-weight:bold;
+    }
+    &.first{
+      text-shadow: 0px 0px 50px $brand-primary,0px 0px 10px $brand-primary;
+/*
+      color:$brand-primary;
+*/
+    }
+    &.second{
+      text-shadow: 0px 0px 50px $brand-info,0px 0px 10px $brand-info;
+/*
+      color: $brand-info;
+*/
+    }
+    &.third{
+      text-shadow: 0px 0px 50px $brand-success, 0px 0px 10px $brand-success;
+/*
+      color: $brand-success;
+*/
+    }
+  }
+}
+
+.stepInactive{
+  position:relative;
+  .overlay{
+    background:rgba(255, 255, 255, 0.3);
+    border: none;
+    bottom: -2px;
+    box-shadow: 0 0 100px rgb(255, 255, 255) inset;
+    left: -2px;
+    position: absolute;
+    right: -2px;
+    top: -2px;  }
+
+}
+
+.clickable{
+  cursor:pointer;
+}
+.invisible{
+  visibility:hidden;
+}
+.rightTop{
+  position:absolute;
+  right:24px;
+  top:6px;
+}
+
+.row{
+  margin:0;
+}
+
+.question{
+  .rank{
+    width:40px;
+    .rankShare{
+      position:absolute;
+      top:70px;
+      width:100%;
+      text-align:center;
+    }
+  }
+}
+
+.ngk-sidebar .ngk-menu{
+  background:#e7e7e7;
+
+
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-thumb {
+    background:#c7c7c7;
+}
+::-webkit-scrollbar-track {
+    background:#f7f7f7;
+}
+
+
+
+.ngk-sidebar .ngk-menu{
+  ::-webkit-scrollbar-thumb {
+      background:#e0e0e0;;
+  }
+  padding-left: 15px;
+}
+
+
+.ngk-sidebar .ngk-menu:hover{
+  ::-webkit-scrollbar-thumb {
+      background:#c7c7c7;
+  }
+}
+
+body{
+  background:#f7f7f7;
+/* overflow-x:hidden;*/
+}
+
+.brand{
+  font-family: Merriweather Sans;
+  font-size:26px;
+  margin-left: 15px;
+}
+.navbar{
+  min-height:0px;
+}
+.profileImg{
+  width:75px;
+}
+
+.serifa{
+  font-family:Merriweather;
+}
+a.noDecoration:hover{
+  text-decoration:none;
+}
+.searchBar{
+  position:absolute;
+  left:388px;
+  right:75px
+}
+.searching .input-group{
+  position: relative;
+  top: 4px;
+}
+
+.ui-match{
+  background-color:yellow;
+}
+
+.close{
+  opacity:0.8;
+}
+
+.license{
+  position:absolute;
+  bottom:0;
+}
+
+
+.dropdown-fixed>.dropdown-menu{
+  position:fixed;
+  top:inherit;
+  left:inherit;
+}
+/*#############*/
+#logo{
+  width:50px;
+  vertical-align:top;
+}
+#brand{
+  position:absolute;
+  left:55px;
+  right:75px;
+  white-space:nowrap;
+  overflow:hidden;
+}
+body.xs{
+  #logo{
+    display:none;
+  }
+  #beta{
+    display:none;
+  }
+  .ocultar-xs{
+    display:none;
+  }
+  .searchBar{
+    left:75px;
+    input{
+      background:rgba(255,255,255,.88);
+    }
+  }
+  margin:0;
+  padding:0;
+  .ngk-main>div>div{
+    width:100vw;
+  }
+  .container{
+    padding:0;
+  }
+  .col-md-1,
+  .col-md-2,
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  .col-md-6,
+  .col-md-7,
+  .col-md-8,
+  .col-md-9,
+  .col-md-10,
+  .col-md-11,
+  .col-md-12,
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12,
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12{
+    padding:0;
+  }
+}
+
+.bg-primary{
+  background:$brand-primary;
+}
+
+.dropdown-menu{
+  min-width:350px;
+  .media-heading{
+    white-space:nowrap;
+  }
+}

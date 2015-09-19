@@ -1,0 +1,34 @@
+<div>
+
+  <div class="suggest" ng-if="match.model.search">
+    <div class="pull-right">
+      <i class="fa fa-fw fa-2x fa-search" > </i>
+    </div>
+    <div class="media-body" >
+      <h4 class="media-heading" translate="searchBox.search"></h4>
+    </div>
+  </div>
+
+
+  <div class="suggest" ng-if="match.model.subarea">
+    <div class="pull-right">
+      <img style="width:50px" class="media-object" ng-src="{{match.model.image}}" >
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{match.model.name}}</h4>
+    </div>
+    <div class="clearfix"></div>
+
+  </div>
+
+  <div class="suggest" ng-if="match.model.externalUrl">
+    <div class="pull-left">
+      <img style="width:50px" class="media-object" ng-src="{{match.model.image}}" >
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{match.model.name}}</h4>
+    </div>
+    <div ng-if="showAddManager()"><a ng-click="addManager(match.model)">Conceder Permiso</a></div>
+    <div class="clearfix"></div>
+  </div>
+</div>

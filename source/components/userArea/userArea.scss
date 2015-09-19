@@ -1,0 +1,31 @@
+#userArea{
+  background:$fondosTitulosYBordes;
+  color:$white;
+  margin-top: 50px;
+  border: 2px solid white;
+  border-radius: $borderRadius;
+  position:relative;
+  min-height:121px;
+
+  img{
+    background: $fondoBar;
+    margin: 15px;
+    width: 112px;
+  }
+  
+  div{
+    position:absolute;
+    top:15px;
+    left:142px;
+    width:119px;
+    &>a{
+      display: block;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+}

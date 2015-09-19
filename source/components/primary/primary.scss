@@ -1,0 +1,43 @@
+.bar{
+  button:focus{
+    color:white;
+  }
+  background:$fondoBar;
+  border-radius: $borderRadius;
+  .bar-header{
+    border-radius: $borderRadius $borderRadius 0 0;
+    background:$fondosTitulosYBordes;
+    font-size: 15px;
+    padding:2px;
+    color: $white;
+    text-align: center;
+    button{
+      background:$fondosTitulosYBordes;
+    }
+    span{
+      position:relative;
+      top:6px;
+    }
+  }
+  .bar-footer{
+    border-radius: 0 0 $borderRadius $borderRadius;
+    button{
+      background:$fondosTitulosYBordes;
+    }
+    background:$fondosTitulosYBordes;
+    font-size: 15px;
+    padding:2px;
+    color: $white;
+    text-align: center;
+  }
+  &.answer .bar-header, &.answer .bar-footer{
+    background: $contestadas;
+    button{
+      background:$contestadas;
+    }
+  }
+  .noQuestions{
+    padding: 100px 10px;
+    text-align: center;
+  }  
+}

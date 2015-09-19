@@ -1,0 +1,27 @@
+<div class="comment" ng-show="question.area.permissions.ask || question.area.custom.tryToAsk">
+  <div class="panel">
+    <div class="panel-body">
+      <div ng-if="user._id" class="foto">
+        <img ng-src="{{user.image}}"></img>
+      </div>
+      <div class="comment-content">
+        <div ng-if="user._id" class="pull-left"> 
+          <a class="author" ng-href="/{{area}}{{user.url}}">
+            {{user.name}} 
+          </a>
+        </div>
+        <div class="clearfix"></div>
+        <article>
+          <textarea msd-elastic class="form-control" ng-model="newComment" ></textarea>
+        </article>
+        <a class="text-success" ng-click="save()">
+          <i class="fa fa-2x fa-check"> </i>
+        </a>
+  &nbsp;&nbsp;
+        <a class="text-danger" ng-click="newComment = ''">
+          <i class="fa fa-2x fa-times"> </i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

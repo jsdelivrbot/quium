@@ -1,0 +1,9 @@
+  <div  id="area" ng-if="area.url!=='_' && area.url!==undefined">
+    <img  style="width:150px" ng-src="{{area.image}}">
+    <h3>
+      <span ng-bind="area.name"></span></a> 
+
+    </h3>
+    <markdown-area class="aboutMe" edit="false" ng-model="area.description"></markdown-area>
+    <div class="clearfix"></div>
+  </div>

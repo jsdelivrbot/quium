@@ -1,0 +1,20 @@
+<div id="topBar">
+  <div class="content">
+    <div id="crowdference">
+      <a class="cleanLink" href="/">
+        <h1>
+          <img src="/assets/images/g14.png" style="width:300px" alt="Crowdference">
+        </h1>
+      </a>
+    </div>
+    <i ng-show="leftBarStatus.show" class="fa fa-bars clickable leftBarToggle" ng-click="leftBarToggle()"></i>
+    <i ng-hide="leftBarStatus.show" class="fa fa-reply clickable leftBarToggle" ng-click="back()"></i>
+    <div id="moto">
+      <search-box></search-box>
+    </div>
+    <languages></languages>
+  </div>
+  <div class="links">
+    <a ng-repeat="link in area.custom.links" target="{{link.target}}" ng-href="{{link.href}}">{{link.label}}</a>
+  </div>
+</div>

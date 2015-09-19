@@ -1,0 +1,114 @@
+.questionCard{
+  position:relative;
+  background:linear-gradient(-90deg, $fondosTitulosYBordes 50px, white 0px);
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  padding-right:50px;
+  margin: 15px;
+  img{
+    margin:15px;
+    width:50px;
+  }
+  .media-body{
+    margin:15px;    
+  }
+  .rank{
+    width:50px;
+    text-align:center;
+  }
+  .answered{
+    position:absolute;
+    color:$white;
+    bottom:15px;
+    right:15px;
+  }
+
+  &.mini{
+    transition-property: height;
+    transition-duration: 0.5s;
+    height:100px;
+  }
+  
+  .questionArea{
+    font-size:11px;
+    height:77px;
+    width:100%;
+    position:relative;
+    overflow-y:hidden;
+    &:after{
+      display: block;
+      height: 50%;
+      background: linear-gradient(0deg, rgba(255,255,255,1), rgba(255,255,255,0));
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 40px;
+    }
+  }
+
+  .crowdIt{
+    position:absolute;
+    right:-5px;
+    top:15px;
+  }
+  .rank{
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+    width: 49px;
+    color: $white;
+    font-size: 17px;
+  }
+}
+.secondary .questionCard{
+    background:linear-gradient(-90deg, white 29px, lightgray 30px, white 31px) !important;
+    padding-right:31px;
+    border-radius: 6px * 0.75;
+    box-shadow: 0 2px* 0.75 5px* 0.75 rgba(0, 0, 0, 0.3);
+    margin: 15px* 0.75;
+    .media-heading{
+      display:none;
+    }
+    .media-body{
+      margin:15px* 0.75;    
+    }
+    .pull-right{
+      height:100%;
+      padding:15px* 0.75;
+    }
+    .questionArea{
+      height:75px;
+      overflow:hidden;
+    }
+
+  img{
+    margin:15px;
+    width:30px;
+  }
+  .rank{
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+    width: 30px;
+    color: black;
+    font-size: 15px;
+  }
+  .crowdIt, .date{
+    display:none;
+  }
+}
+
+.answer .questionCard, .questionCard.answer{
+  background:linear-gradient(-90deg, $contestadas 50px, white 0px);
+}
+
+@media (max-width:400px){
+  .questionCard>.media>a.pull-left{
+    display:none;
+  }
+  .questionCard{
+    margin:5px;
+    padding:10px;
+  }
+}
