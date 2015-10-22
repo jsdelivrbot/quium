@@ -1,0 +1,21 @@
+<div  class="historyEditable">
+
+  <div ng-if="renderize" class="historyview" ng-hide="controls.editing">
+  </div>
+  <div ng-if="!renderize" ng-hide="controls.editing"><div marked="current[what]"></div>
+  </div>
+  <textarea class="form-control" ng-if="controls.editing" ng-model="controls.editing.value" msd-elastic></textarea>
+  <div ng-if="!hideBar" class="bar">
+    <div class="pull-left">
+      <i ng-show="controls.hasprev()" ng-click="controls.prev()" class="fa fa-chevron-left"></i>
+    </div>
+    <i ng-show="controls.editing" ng-click="controls.ok()" class="fa fa-check"></i>
+    <span>{{current.timestamp  |date : 'dd-MM-yyyy hh:mm'}} </span>
+    <i ng-show="controls.editing" ng-click="controls.cancel()" class="fa fa-times"></i>
+    <i ng-if="!controls.editing && $root.canIedit(user)" ng-click="controls.edit()" class="fa fa-edit"></i>
+    <div class="pull-right">
+      <i ng-show="controls.hasnext()" ng-click="controls.next()" class="fa fa-chevron-right"></i>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>

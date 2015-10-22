@@ -1,24 +1,22 @@
 {
   "name": "crowdference",
   "version": "0.0.0",
-  "dependencies": {
-    "gulp-sass": "^2.0.4"
-  },
   "devDependencies": {
-    "del": "^2.0.2",
-    "gulp": "^3.9.0",
-    "gulp-angular-templatecache": "^1.7.0",
-    "gulp-inject": "^1.5.0",
-    "gulp-minify-css": "^1.2.1",
-    "gulp-minify-html": "^1.0.4",
-    "gulp-ng-annotate": "^1.1.0",
-    "gulp-rev": "^6.0.1",
-    "gulp-sass": "^2.0.4",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-standard": "^5.2.2",
-    "gulp-uglify": "^1.4.0",
-    "gulp-usemin": "^0.3.14",
-    "wiredep": "^3.0.0-beta"
+    "del": ">=2.0.2",
+    "gulp": ">=3.9.0",
+    "gulp-angular-templatecache": ">=1.7.0",
+    "gulp-debug": ">=2.1.0",
+    "gulp-inject": ">=1.5.0",
+    "gulp-minify-css": ">=1.2.1",
+    "gulp-minify-html": ">=1.0.4",
+    "gulp-ng-annotate": ">=1.1.0",
+    "gulp-rev": ">=6.0.1",
+    "gulp-sass": ">=2.0.4",
+    "gulp-sourcemaps": ">=1.5.2",
+    "gulp-standard": ">=5.2.2",
+    "gulp-uglify": ">=1.4.0",
+    "gulp-usemin": ">=0.3.14",
+    "wiredep": ">=3.0.0-beta"
   },
   "engines": {
     "node": ">=0.12.0"

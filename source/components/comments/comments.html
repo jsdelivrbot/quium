@@ -1,9 +1,9 @@
 <div>
-  <h3 class="comments-title"><span translate="comments.title"></span> {{question.comments.count}}</h3>
+  <h3 class="comments-title"><span translate="comments_title"></span> {{question.comments.count}}</h3>
 
   <div ng-repeat="comment in question.comments.comments track by comment._id">
     <comment></comment>
   </div>
   <new-comment></new-comment>
-  <div style="height:100px"></div>
+  <div style="height:150px"></div>
 </div>

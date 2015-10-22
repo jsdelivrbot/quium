@@ -32,15 +32,31 @@
     <!-- build:css({.tmp,source}) app/app.css -->
     <link rel="stylesheet" href="app/app.css">
     <!-- endbuild -->
-    <!-- build:css(source) app/lib.css -->
+    <!-- b-uild:css(source) app/lib.css -->
       <!-- bower:css -->
-      <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.css" />
-      <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.css" />
-      <link rel="stylesheet" href="bower_components/csshake/csshake.css" />
       <!-- endbower -->
     <!-- endbuild -->
   </head>
   <body ng-app="crowdferenceApp">
+
+  <div ng-show="wait" id="mask">
+    <div  id="center">
+      <div id="message">Por favor, espere.</div>
+    </div>
+  </div>
+
+  <div ng-if="outOfService" id="outOfService">
+    <div id="login">
+      <div id="landing">
+        <div class="info">
+          <div translate="outOfService">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
     <!--[if lte IE 8]>
       <br>
       <div class="container">
@@ -70,16 +86,10 @@
     <![endif]-->
   <top-bar></top-bar>
   <div class="content">
-    <div id="leftBar" class="left">
-      <user-area></user-area>
-      <inline-question></inline-question>
-      <params-nav key="which"></params-nav>
-      <params-nav key="sort"></params-nav>
-      <params-nav key="as"></params-nav>
-      <div style="height:100px;"></div>
-    </div>
+    <left-bar></left-bar>
     <div ng-view=""></div>
   </div>
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -105,6 +115,8 @@
     <!-- inject:js -->
     <!-- endinject -->
   <!-- endbuild -->
-
+  <a href="https://github.com/crowdference"  id="forkme" >
+    <img src="assets/images/forkme.png" id="forkme"/>
+  </a>
 </body>
 </html>

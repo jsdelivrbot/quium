@@ -4,9 +4,16 @@
   </a>
   <div>
     <a title="{{user.name}}" ng-href="{{user._id ? ('/user/' + user._id + '/' + area.url) : '/sys/login'}}" ng-bind="user.name"></a>
-    <a ng-show="user._id && user.notifications.length==0" translate="userArea.noNotifications"></a>
+    <a ng-show="user._id && user.notifications.length==0" translate="noNotifications"></a>
     <notifications-bar></notifications-bar>
-    <choseUser></choseUser>
-    <a ng-show="user._id" ng-click="logout()" translate="userArea.logout"></a>
+  <span ng-if="user.users" class="dropdown">
+  <a translate="chooseUser" class="dropdown-toggle"></a>
+  <ul class="dropdown-menu" class="list-group" >
+    <li class="list-group-item" ng-repeat="user in user.users track by user._id">
+      <userCard user="user" ng-click="use"></userCard>
+    </li>
+  </ul>
+  </span>
+    <a ng-show="user._id" ng-click="logout()" translate="logout"></a>
   </div>
 </div>

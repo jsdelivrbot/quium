@@ -6,7 +6,7 @@ angular.module('crowdferenceApp')
   var logged = false
   var noname = function () {
     if (!logged) {
-      $translate('userArea.login').then(function (translation) {
+      $translate('login').then(function (translation) {
         that.user.name = translation
       })
     }

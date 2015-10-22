@@ -40,6 +40,12 @@ angular.module('crowdferenceApp')
 
       var popup = $compile('<div mouseleave-delayed="$close()" class="popup"></div>')(scope)
       var element = $compile(config.template)(scope)
+
+      if (config.width) {
+        popup.width(config.width)
+      }
+
+
       if (config.x && config.y) {
         at.call({popup: popup, config: config}, config.x, config.y)
       }

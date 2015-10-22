@@ -1,10 +1,11 @@
 <div class="user">
   <div class="pull-left">
-    <img style="width:50px" class="media-object clickable" ng-click="$root.goToUser(user);" ng-src="{{user.image}}" >
+    <img style="width:50px" class="media-object clickable" ng-click="click(user);" ng-src="{{user.image}}" >
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><a ng-click="$root.goToUser(user)" target="_blank">{{user.name || user.nick}}</a></h4>
-    <a ng-href="{{user.url}}" target="_blank">{{user.url}}</a>
+    <h4 class="media-heading"><a ng-click="click(user)">{{user.name || user.nick}}</a></h4>
+    <a ng-if="!href" ng-href="{{user.url}}" target="_blank">{{user.url}}</a>
+    <span ng-click="click(user)" ng-if="href">{{user.url}}</span>
   </div>
   <div class="clearfix"></div>
 </div>

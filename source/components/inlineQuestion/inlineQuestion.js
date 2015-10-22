@@ -26,7 +26,7 @@ angular.module('crowdferenceApp')
 
   $scope.status = 'searching';
   
-  $http.get('/api/search/' + question.target._id + '/all/target',{params:{topic:question.short}})
+  $http.get('/api/search/' + question.target._id + '/all/target',{params:{topic:question.question}})
   .success(function(data){
     $scope.status = 'done';
     if(data.questions.length===0){
@@ -49,8 +49,6 @@ angular.module('crowdferenceApp')
 })
 
 .directive('inlineQuestion', function () {
-  var shortMaxLength    = 200;
-  var shortMinLength    = 20;
   return {
     templateUrl: 'components/inlineQuestion/inlineQuestion.html',
     restrict: 'E',
@@ -67,15 +65,13 @@ angular.module('crowdferenceApp')
       })
       
       $scope.typesearch = {};
-      $scope.shortMaxLength = shortMaxLength;
-      $scope.shortMinLength = shortMinLength;
       $scope.isLogged = User.isLogged;
       $scope.markdown = markdown;
       $scope.question = {
-        short:''
+        question:''
       };
       $scope.Area = Area.current;
-      $scope.shortActive = true;
+      $scope.questionActive = true;
       $scope.updateTargets = function(){
         $http.get('/api/area/'+Area.current.url+'/targets/typeahead?q=')
           .then(function(data){
@@ -85,14 +81,10 @@ angular.module('crowdferenceApp')
 
       $scope.getSuggestions = function(topic){
         if(topic.match(/^ .*/)){
-          return $http.get('/auth/search?q='+topic)
+          return $http.get('/api/auth/search?q='+topic)
           .then(function(data){
             if(data.data.users.length){
-            data.data.users.forEach(function(user){
-              user.shortExternalUrl = user.externalUrl.replace(/^http(s?):\/\/(w{3}\.)?/,'').replace(/^mailto:/,'');
-            });
-
-            return data.data.users;
+              return data.data.users;
             }else{
               return [{notFound:true}];
             }
@@ -102,7 +94,7 @@ angular.module('crowdferenceApp')
         }else if(topic){
           return $http.get('/api/area/'+Area.current.url+'/targets/typeahead?q='+topic)
           .then(function(data){
-            // ~ data.data.targets.push({search:topic});
+            data.data.targets.push({search:topic});
             return data.data.targets;
           });
         }else{
@@ -129,28 +121,30 @@ angular.module('crowdferenceApp')
         if(!test()){
           return;
         }
-        var modalInstance = $modal.open({
-          templateUrl: 'components/inlineQuestion/search.html',
-          controller: 'inlineQuestionSearchCtrl',
-          size: 'lg',
-          resolve: {
-            question: function () {
-              return $scope.question;
+        if($scope.question.target._id){
+          var modalInstance = $modal.open({
+            templateUrl: 'components/inlineQuestion/search.html',
+            controller: 'inlineQuestionSearchCtrl',
+            size: 'lg',
+            resolve: {
+              question: function () {
+                return $scope.question;
+              }
             }
-          }
-        });
+          });
 
-        modalInstance.result.then(function () {
-          if(!$scope.question.target._id){
-            createUserAndCrowdIt();
-          }else{
-            crowdIt();
-          }
-        }, function () {
-          $scope.question = {
-            short:''
-          };
-        });
+          modalInstance.result.then(function () {
+            crowdIt()
+          }, function () {
+            $scope.question = {
+              question:''
+            }
+          })
+
+          return
+        }
+
+        createUserAndCrowdIt()
 
       };
       var test = function(){
@@ -165,32 +159,23 @@ angular.module('crowdferenceApp')
           return error();
         }
 
-        // ~ if($scope.question.short.length   > shortMaxLength ){
-          // ~ return error();
-        // ~ }
-        // ~ if($scope.question.short.length   < shortMinLength ){
-          // ~ return error();
-        // ~ }
-
         $scope.error = false;
         return true;
       },
       createUserAndCrowdIt = function(){
-        $http.put('/auth/'+$scope.question.target.source, {
-          uid:$scope.question.target.id+''
-        }).success(function(data){
-          $scope.question.target = {
-            _id:data.user._id
-          };
+        $http.put('/api/auth/' + $scope.question.target.profile.type, {
+          uid:$scope.question.target.profile.uid+''
+        })
+        .then(function(data){
+          $scope.question.target = data.data.user
           crowdIt();
         });
       },
       crowdIt = function(){
-        User.$http.post('/api/question/' + Area.current._id + '/' +$scope.question.target._id,  {question: {short: $scope.question.short}}).then(function(response){
-          $location.url('/question/'+response.data._id);
-        }).catch(function(){
-          window.alert('algo ha salido mal');
-        });
+        User.$http.post('/api/question/' + Area.current._id + '/' +$scope.question.target._id,  {question: {short: $scope.question.question}})
+        .then(function (response) {
+          $location.url('/question/'+response.data._id)
+        })
       };
     }
   };

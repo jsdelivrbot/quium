@@ -17,7 +17,7 @@
     <div collapse="!collapsed">
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="manager in user.managers">
-          <button ng-click="removeManager($index)" class="btn btn-danger pull-right" tooltip="{{'buttons.remove'|translate}}" ><i class="fa fa-times"></i></button>
+          <button ng-click="removeManager($index)" class="btn btn-danger pull-right" tooltip="{{'remove'|translate}}" ><i class="fa fa-times"></i></button>
           <user-card user="manager"></user>
         </li>
         <li ng-if="user.managers.length<4" class="list-group-item" >

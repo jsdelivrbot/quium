@@ -10,7 +10,7 @@
     typeahead-wait-ms="100"
     typeahead-search="typesearch"
     typeahead-on-select="target=select($model)"
-    placeholder="{{'inlineQuestion.target'|translate}}">
+    placeholder="{{'inlineQuestion_target'|translate}}">
   </input>
 
   <div ng-if="Area.custom.targets" class="target clickable dropdown dropdown-toggle" ng-click="updateTargets()" ng-hide="question.target.url">
@@ -48,17 +48,17 @@
   </div>
   
   <markdown-area 
-    ng-model="question.short" 
-    placeholder="{{'inlineQuestion.question'|translate}}" 
-    active="shortActive"  
+    ng-model="question.question" 
+    placeholder="{{'inlineQuestion_question'|translate}}" 
+    active="questionActive"  
     editable="true"
   ></markdown-area>
 
-  <div ng-class="{error:shortMaxLength<question.short.length}" class="info">{{shortMaxLength-question.short.length}}</div>
+  <div ng-class="{error:questionMaxLength<question.question.length}" class="info">{{questionMaxLength-question.question.length}}</div>
   <div class="clearfix"></div>
 
   <div class="footer">
-    <div ng-class="{error:question.short.length===0 || shortMaxLength<question.short.length || !question.target}" class="crowdIt clickable" ng-click="crowdIt()" ></div>
+    <div ng-class="{error:question.question.length===0 || shortMaxLength<question.short.length || !question.target}" class="crowdIt clickable" ng-click="crowdIt()" ></div>
   </div>
 
 

@@ -14,12 +14,13 @@ angular.module('crowdferenceApp')
         }
 
         $scope.showComment = function ($event, index) {
-          if ($scope.question.comments.comments[index]) {
+          if ($scope.question.comments.comments[index - 1]) {
             return $popup({
               template: '<comment></comment>',
-              scope: {comment: $scope.question.comments.comments[index], question:$scope.question},
+              scope: {comment: $scope.question.comments.comments[index - 1], question: $scope.question},
               x: $event.pageX,
-              y: $event.pageY
+              y: $event.pageY,
+              width: $($event.currentTarget).parents('.comment').width()
             })
           }
         }
@@ -67,71 +68,11 @@ angular.module('crowdferenceApp')
           }, $scope.question.comments.comments)
         }
 
+        $scope.edit = function (comment, $value) {
+          return $http.put('/api/comments/' + comment._id, {comment: $value})
+        }
+
         $scope.tree()
       }
-    }
-  })
-
-  .service('Comments', function ($http, User, $q, Area) {
-    var rg = /#\d+/g
-    var commentMinLength = 10
-    var commentMaxLength = 2000
-    var family = function () {
-      this.comments.forEach(function (comment, index) {
-        comment.children = undefined
-        comment.parents = undefined
-        this.parents[index] = comment
-      }, this)
-      this.comments.forEach(function (comment) {
-        if (comment.response === undefined) {
-          comment.response = {
-            comment: '#' + comment.count
-          }
-        }
-        if (comment.children === undefined) {
-          comment.children = []
-        }
-        if (comment.parents === undefined) {
-          comment.parents = {}
-        }
-        var id = 0
-        var parent = null
-        var links = comment.comment[comment.comment.length - 1].comment.match(rg) || []
-        this.parents = {}
-        while (links.length) {
-          id = links.pop()
-          if (this.parents[id]) {
-            continue
-          }
-          this.parents[id] = true
-
-          id = id.trim().substr(1) - 1
-          parent = this.comments[id]
-          if (!parent) {
-            continue
-          }
-
-          comment.parents[id] = parent
-
-          if (parent.children === undefined) {
-            parent.children = [comment]
-            continue
-          }
-          parent.children.push(comment)
-        }
-      }, this)
-    }
-    this.Comments = function (question) {
-      var that = this
-      this.commentMaxLength = commentMaxLength
-      this.commentMinLength = commentMinLength
-      this.response = {}
-      this.family = family
-      this.parents = []
-      this.question = question
-      this.comments = question.comments.comments
-
-      this.family()
-      that.permissions = Area.current.permissions
     }
   })

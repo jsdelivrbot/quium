@@ -1,4 +1,5 @@
 var gulp = require('gulp')
+var debug = require('gulp-debug');
 var sass = require('gulp-sass')
 var inject = require('gulp-inject')
 var wiredep = require('wiredep').stream
@@ -88,7 +89,7 @@ gulp.task('build', ['dev', 'copy-bower-components', 'copy'], function () {
     .pipe(usemin({
       css: [minifyCss, rev],
       js: [ngAnnotate, uglify, rev],
-      html: [minifyHtml({empty:true})]
+      html: [minifyHtml]
     }))
     .pipe(gulp.dest('build/'))
 })

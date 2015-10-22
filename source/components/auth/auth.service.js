@@ -193,7 +193,7 @@ angular.module('crowdferenceApp')
 
   })
   .config(function ($httpProvider) {
-    $httpProvider.interceptors.push(function () {
+    $httpProvider.interceptors.push(function ($q, $rootScope) {
       return {
         'request': function (request) {
           if (localStorage.token && request.url.match(/^\/api/)) {
@@ -202,7 +202,25 @@ angular.module('crowdferenceApp')
             request.headers['X-AUTH-TOKEN'] = localStorage.token
             request.headers['X-AUTH-AS'] = request.headers['X-AUTH-AS'] || sessionStorage.user
           }
+          if(!request.url.match(/\/typeahead[\/?]/)){
+            $rootScope.wait = true
+          }
           return request
+        },
+        'responseError': function (response) {
+          $rootScope.wait = false
+          if (response.status === 401) {
+            localStorage.clear()
+            window.location = '/'
+          }
+          if (response.status === 502) {
+            $rootScope.outOfService = true
+          }          
+          return $q.reject(response)
+        },
+        'response': function (response) {
+          $rootScope.wait = false
+          return response
         }
       }
     })

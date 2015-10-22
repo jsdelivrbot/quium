@@ -30,16 +30,16 @@ angular.module('crowdferenceApp')
 
         $scope.index = $scope.comment.comment.length - 1
 
-        $scope.$watch('index', function () {
-          $scope.show = render()
-        })
+        var render = function (content) {
+          var txt = content.replace(/#(\d+)/g, '<a class="btn btn-sm" ng-click="goToComment($1)" mouseenter-delayed="showComment($event,$1)" mouseenter-delay="1000">#$1</a>')
 
-        var render = function () {
-          var txt = $scope.comment.comment[$scope.index].comment.replace(/#(\d+)/g, '<a class="btn btn-sm" ng-click="goToComment($1)" mouseenter-delayed="showComment($event,$1)" mouseenter-delay="1000">#$1</a>')
-          txt = markdown(txt)
-          $element.find('.txt').empty().append($compile(txt)($scope))
+          return {
+            html: markdown(txt),
+            $scope: $scope
+          }
         }
-        render()
+
+        $scope.render = render
 
         $scope.status = {
         }

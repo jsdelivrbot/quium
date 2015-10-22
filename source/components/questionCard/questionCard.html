@@ -5,13 +5,13 @@
     <div class="media-body">
       <span class="media-heading">
         <a ng-click="goToUser(question.target, question.area)">
-          <span class="text-primary" translate="question.target"></span>
+          <span class="text-primary" translate="target"></span>
           <span ng-bind="question.target.name"></span>
         </a>
       </span>
       <a ng-click="goToQuestion(question)">
         <div class="questionArea">
-          <div class="serifa" style="color:#555" marked="question.question[question.question.length-1].short"></div>
+          <div class="serifa" style="color:#555" marked="question.question[question.question.length-1].question"></div>
         </div>
       </a>
       <span class="date" class="pull-right" style="color:grey">{{question.questionTimestamp | date:'dd-MM-yyyy HH:mm'}} </span>

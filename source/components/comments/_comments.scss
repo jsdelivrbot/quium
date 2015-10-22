@@ -79,6 +79,21 @@
           border-color:$crowdIt;
         }
       }
+
+      .bar{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 100px;
+        color:$verdeOscuro;
+        font-size:100%;
+        text-align:center;
+        i{
+          cursor:pointer;
+        }
+
+      }
+
     }
   }
 }

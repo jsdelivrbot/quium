@@ -1,153 +1,106 @@
 {
-  "topBar" : {
-    "search" : "\"Popularize your questions\""
-  },
-  "userArea" : {
-    "noNotifications" : "<strong>0</strong> notifications",
-    "oneNotification" : "<strong>1</strong> notification",
-    "manyNotifications" : "<strong>{{count}}</strong> notifications",
-    "logout" : "logout",
-    "login" : "login",
-    "moreNotifications" : "<strong>+{{count}}</strong> notifications"
-  },
-  "inlineQuestion" : {
-    "target" : "TO WHOM ARE YOU ASKING THE QUESTION",
-    "question" : "QUESTION",
-    "notFound" : "Not Found",
-    "search" : "search in social media"
-  },
-  "periodNav" : {
-    "question" : "Pending questions",
-    "answer" : "Answered questions",
-    "24h" : "1 day's most relevant",
-    "1w" : "the week's most relevant",
-    "1m" : "the month's most relevant",
-    "1y" : "the year's most relevant",
-    "ever" : "all-time most relevant",
-    "last" : "new"
-  },
-  "questionBar" : {
-    "all" : {
-      "target" : "This user has not answered any questions yet.",
-      "user" : "No questions published by this user have been answered yet.",
-      "votes" : "No questions supported by this user have been answered yet.",
-      "null" : "No questions have been answered in this area yet.",
-      "24h" : "1 day's most relevant questions answered",
-      "1w" : "the week's most relevant questions answered",
-      "1m" : "the month's most relevant questions answered",
-      "1y" : "the year's most relevant questions answered",
-      "ever" : "most relevant answered questions ever",
-      "last" : "most recent questions answered"
-    },
-    "answer" : {
-      "target" : "This user has not answered any questions yet.",
-      "user" : "No questions published by this user have been answered yet.",
-      "votes" : "No questions supported by this user have been answered yet.",
-      "null" : "No questions have been answered in this area yet.",
-      "24h" : "1 day's most relevant questions answered",
-      "1w" : "the week's most relevant questions answered",
-      "1m" : "the month's most relevant questions answered",
-      "1y" : "the year's most relevant questions answered",
-      "ever" : "most relevant answered questions ever",
-      "last" : "most recent questions answered"
-    },
-    "question" : {
-      "target" : "there area no questions waiting for this user to answer.",
-      "user" : "there are no questions published by this user waiting to be answered.",
-      "votes" : "there are no questions crowded by this user waiting to be answered.",
-      "null" : "that area has no questions waiting to be answered.",
-      "24h" : "most voted questions in 1 day",
-      "1w" : "most voted questions in 1 week",
-      "1m" : "most voted questions in 1 month",
-      "1y" : "most voted questions in 1 year",
-      "ever" : "most voted questions ever",
-      "last" : "most recent questions"
-    },
-    "search" : {
-      "null" : "Search results: {{topic}}"
-    }
-  },
-  "buttons" : {
-    "cancel" : "cancel",
-    "remove" : "remove",
-    "accept" : "accept",
-    "close" : "close"
-  },
-  "notifications" : {
-    "asked" : "[u:user] has asked a new [q:question question] to [u:target]",
-    "askedToYou" : "[u:user] has asked you a new [q:question question]",
-    "answered" : "[u:target] has answered the question that [u:user] ask him",
-    "comment" : "your [c:comment comment] has a new response by [u:user]",
-    "answeredToYou" : "your [q:question question] to [u:target] has been answered"
-  },
-  "login" : {
-    "enter" : "Sign in with {{name}}",
-    "email" : "enter with your mail",
-    "check" : "check your security code",
-    "title" : {
-      "enter" : "Sign in conveniently with your social media profile."
-    },
-    "fair" : {
-      "title" : "Fair use commitment.",
-      "first" : "Crowdference will never gather information about you or your contacts.",
-      "second" : "Crowdference will never publish on your behalf."
-    },
-    "legal" : {
-      "open" : "legal notice",
-      "title" : "The use of Crowdference implies the acceptance of our terms and conditions",
-      "resumen" : "As a part of them, you acknowledge you are using Crowdference under your full responsibility, complying with all applicable laws, and you accept the use of the Creative Commons BY-SA licence",
-      "link" : "read the terms and conditions of the service"
-    }
-  },
-  "profile" : {
-    "managers" : "users allowed to act on behalf of this profile:",
-    "published" : "questions published",
-    "received" : "questions received",
-    "crowded" : "my crowdit!s"
-  },
-  "question" : {
-    "target" : "To:",
-    "answer" : "Answer: ",
-    "toAnswer" : "Answer: ",
-    "iAm" : "I am {{name}}"
-  },
-  "share" : {
-    "text" : "I want {{name}} to answer this question"
-  },
-  "cookies" : {
-    "message" : "We use cookies for our continual improvement, thanks to the Crowdference traffic analytics.<br>If you do not want to to be part of our statistics, please click reject."
-  },
-  "comments" : {
-    "title" : "comments:",
-    "new" : "Write a comment",
-    "placeholder" : "comment"
-  },
-  "name" : "English",
-  "searchBox" : {
-    "search" : "search"
-  },
-  "translate" : {
-    
-  },
-  "landing" : {
-    "info" : "<h1>Welcome to Crowdference</h1><p>In some occasions, the media can’t, or doesn’t want, or doesn’t know how to ask the questions about what really matters to us.</p><p>Through Crowdference you can pass directly your questions to the person or institution you want. Thanks to the support and dissemination of the community, they will answer these questions.</p><p>Improve your transparency by  participating in a continuous, horizontal and neutral wheel of masses.</p>",
-    "guest" : {
-      "title" : "Let’s have a look",
-      "button" : "guest"
-    },
-    "mail" : {
-      "title" : "log in with your email",
-      "button" : "login",
-      "confirm" : {
-        "title" : "confirmation code",
-        "button" : "confirm"
-      }
-    },
-    "oauth" : {
-      "title" : "or with your public profile"
-    },
-    "safe" : "<h4>is it safe?</h4><p>Log in at Crowdference through a social network doesn’t allow Crowdference nor anybody: access your account, usurp your identity, obtain private information or publish on behalf of your name</p>",
-    "cookies" : "<h4>cookies</h4><p>Crowdference uses cookies to make anonymous  analyses of its usability. You can set your browser to disable them.</p>",
-    "terms" : "<h4>Legal terms</h4><p>The users-generated content is property of our users, who accept use the creativecommons' license  Attribution-ShareAlike</p>"
-  }
+  "name" : "Español",
+
+  "moto": "\"masifica tus preguntas\"",
+  "search" : "buscar",
+
+  "login" : "entrar",
+  "logout" : "salir",
+
+  "managers" : "usuarios con permiso para actuar como este perfil:",
+  "remove" : "eliminar",
+
+  "questionBar_all_target" : "Este usuario aún no ha recibido ninguna pregunta.",
+  "questionBar_all_user" : "Este usuario aún no ha publicado ninguna pregunta.",
+  "questionBar_all_votes" : "Este usuario aún no ha votado ninguna pregunta.",
+  "questionBar_all_null" : "Este area aún no tiene preguntas.",
+  "questionBar_all_24h" : "preguntas y respuestas más relevantes",
+  "questionBar_all_1w" : "preguntas y respuestas más relevantes",
+  "questionBar_all_1m" : "preguntas y respuestas más relevantes",
+  "questionBar_all_1y" : "preguntas y respuestas más relevantes",
+  "questionBar_all_ever" : "preguntas y respuestas más relevantes",
+  "questionBar_all_last" : "ultimas preguntas y respuestas",
+  "questionBar_answer_target" : "Este usuario aún no ha contestado ninguna pregunta.",
+  "questionBar_answer_user" : "Aún no hay preguntas publicadas por este usuario que hayan sido contestadas.",
+  "questionBar_answer_votes" : "Aún no hay preguntas apoyadas por este usuario que hayan sido contestadas.",
+  "questionBar_answer_null" : "Este area aún no tiene preguntas contestadas.",
+  "questionBar_answer_24h" : "preguntas respondidas más relevantes",
+  "questionBar_answer_1w" : "preguntas respondidas más relevantes",
+  "questionBar_answer_1m" : "preguntas respondidas más relevantes",
+  "questionBar_answer_1y" : "preguntas respondidas más relevantes",
+  "questionBar_answer_ever" : "preguntas respondidas más relevantes",
+  "questionBar_answer_last" : "ultimas preguntas respondidas",
+  "questionBar_question_target" : "No hay preguntas a la espera de que este usuario las responda.",
+  "questionBar_question_user" : "No hay preguntas publicadas por este usuario a la espera de respuesta.",
+  "questionBar_question_votes" : "No hay preguntas apoyadas por este usuario a la espera de respuesta.",
+  "questionBar_question_null" : "Este área no tiene preguntas pendientes.",
+  "questionBar_question_24h" : "preguntas más relevantes en 1 día",
+  "questionBar_question_1w" : "preguntas más relevantes en 7 días",
+  "questionBar_question_1m" : "preguntas más relevantes en 1 mes",
+  "questionBar_question_1y" : "preguntas más relevantes en 1 año",
+  "questionBar_question_ever" : "preguntas más relevantes",
+  "questionBar_question_last" : "últimas preguntas",
+  "questionBar_search_null" : "Resultados de la búsqueda: {{topic}}",
+
+  "noNotifications" : "<strong>0</strong> notificaciones",
+  "oneNotification" : "<strong>1</strong> notificación",
+  "manyNotifications" : "<strong>{{count}}</strong> notificaciones",
+  "moreNotifications" : "<strong>+{{count}}</strong> notificaciones",
+
+  "chooseUser": "Escoger usuario",
+  "iAm": "yo soy {{name}} y quiero contestar",
+  "target": "Para: ",
+  "answer": "Respuesta: ",
+  "toAnswer": "Responder: ",
+
+  "guest_button" : "seguir como invitado",
+  "guest_title" : "Sólo quiero mirar",
+
+  "terms" : "<h4>Terminos legales</h4>       <p>El contenido generado por nuestros usuarios es propiedad de nuestros usuarios que aceptan licenciarlo como <strong>reconocimiento compartirIgual</strong> de creativecommons. <br/><a target=\"_blank\" href=\"http://blog.crowdference.org/licencias-del-contenido-de-crowdference\">más información</a>       </p>",
+  "safe" : "<h4>¿es seguro?</h4>       <p>Loguearse en crowdference a través de una red social no permite, ni a crowdference ni a nadie: entrar en tu cuenta, usurpar tu identidad, obtener información privada, o publicar en tu nombre.</p>",
+  "cookies" : "<h4>cookies</h4>       <p>Crowdference utiliza cookies para realizar análisis anónimos de su usabilidad. Puedes configurar tu navegador para desabilitarlas.</p>",
+
+  "oauth" : "Entra con tu perfil público",
+  "mail_title" : "loguéate con tu correo",
+  "mail_button" : "entrar",
+  "mail_confirm_title" : "Código de verificación",
+  "mail_confirm_button" : "verificar",
+  "info" : "<h1>Bienvenido a Crowdference</h1>       <p>En ocasiones, los medios no quieren, no pueden o no saben hacer las preguntas que realmente importan.</p>       <p>A través de Crowdference podrás hacer llegar tus preguntas directamente a la personalidad o institución que quieras, para conseguir gracias al apoyo y la difusión de la comunidad que respondan.</p>       <p>Mejora tu transparencia participando en una rueda de masas continua, horizontal y neutra.</p>",
+
+  "paramsNav_titles_which": "Estado de la pregunta",
+  "paramsNav_titles_sort": "Periodo de actividad",
+  "paramsNav_titles_as": "Relación con el usuario",
+  "paramsNav_which_all" : "Preguntas y respuestas",
+  "paramsNav_which_answer" : "Preguntas respondidas",
+  "paramsNav_which_question" : "Preguntas sin responder",
+  "paramsNav_sort_24h" : "más relevantes del 1 día",
+  "paramsNav_sort_1w" : "más relevantes de la semana",
+  "paramsNav_sort_1m" : "más relevantes del mes",
+  "paramsNav_sort_1y" : "más relevantes del año",
+  "paramsNav_sort_ever" : "más relevantes de siempre",
+  "paramsNav_sort_last" : "nuevas",
+  "paramsNav_as_votes": "preguntas votadas por el usuario",
+  "paramsNav_as_target": "preguntas recibidas por el usuario",
+  "paramsNav_as_user": "preguntas realizadas por el usuario",
+
+  "login_cancel_title" : "Solo quiero mirar",
+  "login_cancel_button" : "Cancelar y volver",
+
+  "close" : "cerrar",
+  "snsearch" : "buscar en redes sociales",
+
+
+  "notFound" : "No encontrado",
+
+  "inlineQuestion_target" : "A QUIÉN PREGUNTAS",
+  "inlineQuestion_question" : "PREGUNTA",
+
+  "comments_title" : "comentarios:",
+  "comments_new" : "Escribe un comentario",
+  "comments_placeholder" : "Comentario",
+
+  "viewAllNotifications" : "Ver todas las notificaciones",
+
+  "outOfService": "<h3>Volvemos en 15 minutos</h3><p>Estamos llevando a cabo trabajos en los servidores que nos obligan a cerrar el servicio momentaneamente.</p>"
 }
+

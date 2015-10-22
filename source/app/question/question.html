@@ -8,63 +8,43 @@
         <img ng-src="{{question.user.image}}"><br>
       </a>
       <p class="from">{{question.user.name || question.user.nick || '---'}}</p>
-      <h2><span translate="question.target"></span> {{question.target.name}}</h2>
-      <span>{{question.questionTimestamp |date : 'dd-MM-yyyy'}}</span>
+      <h2><span translate="target"></span> {{question.target.name}}</h2>
     </div>
     <div class="question">
-      <div class="text short">
-        <div  marked="question.question[index.question].short" 
-        ></div>
-      </div>
       <div class="text">
-        <div marked="question[index.question].long"></div>
+        <history-editable save="save('question', $value)" what="question" history="question.question" user="question.user"></history-editable>
       </div>
     </div>
     <div class="response" class="answered">
       <div class="title">
-        <h2 ng-if="question.isAnswered"><span translate="question.answer"></span></h2>
-        <h2 ng-if="!question.isAnswered"><span translate="question.toAnswer"></span></h2>
-        <span ng-if="question.isAnswered">{{question.answerTimestamp  |date : 'dd-MM-yyyy'}}</span>
-
+        <h2 ng-if="question.isAnswered"><span translate="answer"></span></h2>
+        <h2 ng-if="!question.isAnswered"><span translate="toAnswer"></span></h2>
       </div>
       <div>
         <div class="responseArea" >
-          <div class="text" ng-show="question.isAnswered">
-            <div marked="question.answer[index.answer].answer" 
-            ></div>
+          <div class="text" ng-if="question.isAnswered || canIanswer()" >
+            <history-editable save="save('answer', $value)" what="answer" history="question.answer" user="question.target"></history-editable>
           </div>
-          
-          <div ng-if="!canIanswer()" class="text" ng-show="!question.isAnswered">
+          <div ng-if="!question.isAnswered && !canIedit(question.target)" class="text">
             <div class="horizontalcenter">
               <div class="verticalcenter">
-                <a class="clickable claim" ng-href="/sys/login?target=true"><span translate-values="{name:question.target.name||question.target.nick}" translate="question.iAm"></span></a>
+                <a class="clickable claim" ng-href="/sys/login?target=true"><span translate-values="{name:question.target.name||question.target.nick}" translate="iAm"></span></a>
               </div>
             </div>
           </div>
-
-          <div ng-if="canIanswer()" ng-show="!question.isAnswered">
-              <div class="panel">
-                <div class="panel-body">
-                  <textarea msd-elastic ng-model="response" class="form-control"></textarea>
-                  <a class="text-success" ng-click="save(response)">
-                    <i class="fa fa-2x fa-check"> </i>
-                  </a>
-                </div>
-              </div>
-          </div>          
         </div>
         <div class="clearfix"></div>
       </div>
     </div>
   </div>
   <div class="footer">
-    <div id="f1"> 
+    <div id="f1">
       <div class="crowdits clickable" ng-click="showVotes(question.votes)">{{question.votes.count}} crowdits</div>
     </div>
     <div id="f2">
-      <img class="clickable" ng-click="popup('twitter')" src="/assets/images/tw.png"> 
-      <img class="clickable" ng-click="popup('facebook')" src="/assets/images/fb.png"> 
-      <img class="clickable" ng-click="popup('google')" src="/assets/images/g+.png"> 
+      <img class="clickable" ng-click="popup('twitter')" src="/assets/images/tw.png">
+      <img class="clickable" ng-click="popup('facebook')" src="/assets/images/fb.png">
+      <img class="clickable" ng-click="popup('google')" src="/assets/images/g+.png">
     </div>
     <div id="f3">
       <div ng-show="quesiont.area.permissions.ask || question.area.custom.tryToAsk" ng-click="vote()" ng-class="{voted:checkVoted()}" class="crowdIt clickable"></div>

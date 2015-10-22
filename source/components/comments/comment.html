@@ -15,15 +15,12 @@
         <div class="pull-left">
           <a class="author" ng-click="respondTo(comment)"><b>#{{comment.count}}</b></a>
           <a class="author"  ng-click="goToUser(comment.user, question.area)">
-            {{comment.user.name || comment.user.nick || '---'}} 
+            {{comment.user.name || comment.user.nick || '---'}}
           </a>
-        </div>
-        <div class="pull-right date">
-          {{comment.comment[index].timestamp | date}} 
         </div>
         <div class="clearfix"></div>
         <article>
-          <div class="txt"> </div>
+          <history-editable hide-bar="true" current="current" what="comment" history="comment.comment" render="render($content)" save="edit(comment, $value)" user="comment.user" controls="controls" ></history-editable>
         </article>
       </div>
     </div>
@@ -38,6 +35,28 @@
         </div>
         <span>{{comment.children.length}}</span>
       </a>
+
+      <div class="bar">
+        <div class="pull-left">
+          <i ng-show="controls.hasprev()" ng-click="controls.prev()" class="fa fa-chevron-left"></i>
+        </div>
+        <i ng-show="controls.editing" ng-click="controls.ok()" class="fa fa-check"></i>
+        <span>{{current.timestamp  |date : 'dd-MM-yyyy hh:mm'}} </span>
+        <i ng-show="controls.editing" ng-click="controls.cancel()" class="fa fa-times"></i>
+        <i ng-if="!controls.editing && $root.canIedit(comment.user)" ng-click="controls.edit()" class="fa fa-edit"></i>
+        <div class="pull-right">
+          <i ng-show="controls.hasnext()" ng-click="controls.next()" class="fa fa-chevron-right"></i>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+
+    </div>
+    <div class="clearfix"></div>
+
+
+
+
     </div>
   </div>
   <div collapse="!status.respond" class="children" >

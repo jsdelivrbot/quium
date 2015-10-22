@@ -2,18 +2,18 @@
   <div class="bar-header">
     <button class="btn  pull-left" ng-click="prev()"><i class="fa fa-arrow-left"></i></button>
     <button class="btn  pull-right" ng-click="next()"><i class="fa fa-arrow-right"></i></button>
-    {{'questionBar.'+Questions.params.which+'.'+Questions.params.sort|translate}}
+    {{'questionBar_'+Questions.params.which+'_'+Questions.params.sort|translate}}
     <div class="clearfix"></div>
   </div>
   <div ng-if="questions.length" ng-repeat="question in questions track by question._id">
     <question-card question="question"></question-card>
   </div>
   <div  ng-if="!questions.length" class="noQuestions">
-    {{'questionBar.'+Questions.type+'.'+Questions.mode | translate}}
+    {{'questionBar_'+Questions.type+'_'+Questions.mode | translate}}
   </div>
   <div class="bar-footer">
     <button class="btn  pull-left" ng-click="prev()"><i class="fa fa-arrow-left"></i></button>
-    <button class="btn  pull-right" ng-click="next()"><i class="fa fa-arrow-right"></i></button>{{'questionBar.'+Questions.params.which+'.'+Questions.params.sort|translate}}
+    <button class="btn  pull-right" ng-click="next()"><i class="fa fa-arrow-right"></i></button>{{'questionBar_'+Questions.params.which+'_'+Questions.params.sort|translate}}
     <div class="clearfix"></div>
   </div>
 </div>

@@ -2,7 +2,6 @@
 
 angular.module('crowdferenceApp')
   .service('Question', function ($location, User, $route, $q, $http) {
-
     var that = this
     this.view = {}
 
@@ -20,12 +19,13 @@ angular.module('crowdferenceApp')
       }.bind(this))
     }
 
-    this.respond = function (response) {
-      return User.$http.put('/api/question/' + this.view._id + '/answer', {
-        answer: response
-      }).then(function () {
-        this.view.answer.push({answer: response, timestamp: Date.now()})
-        this.view.isAnswered = true
+    this.save = function (where, what) {
+      return User.$http.put('/api/question/' + this.view._id + '/' + where, {
+        what: what
+      }).then(function (response) {
+        if (what === 'answer') {
+          this.view.isAnswered = true
+        }
       }.bind(this))
     }
 

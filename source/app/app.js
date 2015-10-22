@@ -63,6 +63,11 @@ angular.module('crowdferenceApp', [
       $location.$$search = {}
       $location.path(area._url || '_')
     }
+    $rootScope.canIedit = function (user) {
+      return User.user._id === user._id || User.user.users.indexOf(user._id) !== -1
+    }
+
+
     $rootScope.Area = Area
 
     $rootScope.showVotes = function (votes) {

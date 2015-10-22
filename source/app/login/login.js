@@ -51,6 +51,8 @@ angular.module('crowdferenceApp')
       })
     })
 
+
+    
     $scope.oauths = oauths
 
     if ($location.search().target && Question.view.target) {
@@ -74,9 +76,24 @@ angular.module('crowdferenceApp')
     $scope.anyOauth = function () {
       return $scope.oauths.length
     }
-  })
-  .controller('loginCallbackCtrl', function loginCtrl ($scope, $location, $http, $route, User) {
 
+    $scope.guest = function () {
+      delete (localStorage.firstCall)
+      window.history.back()
+    }
+    if (localStorage.firstCall || $scope.user) {
+      $scope.guest.title = 'landing.cancel.title'
+      $scope.guest.button = 'landing.cancel.button'
+    }else {
+      $scope.guest.title = 'landing.guest.title'
+      $scope.guest.button = 'landing.guest.button'
+    }
+
+  })
+  .controller('loginCallbackCtrl', function loginCtrl ($scope, $location, $http, $route, User, $rootScope) {
+
+    $rootScope.wait = true;
+    
     localStorage.token = $route.current.params.token
     User.reload()
 
@@ -86,9 +103,9 @@ angular.module('crowdferenceApp')
       var path = params.shift()
       var method = params.shift()
       $http[method].apply($http, params)
-      .then(function () {
+      .then(function (response) {
         if (method === 'post' && params[0].match(/^\/api\/question\/[a-f0-9]{24}\/[a-f0-9]{24}$/)) {
-          $location.path(params[0].replace(/^\/api(\/question\/[a-f0-9]{24})\/[a-f0-9]{24}$/, '$1'))
+          $location.url('/question/'+response.data._id)
           return
         }else {
           $location.path(path)
