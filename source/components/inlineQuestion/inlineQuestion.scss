@@ -15,7 +15,7 @@
     border:none;
     border-bottom:2px solid $fondosTitulosYBordes;
   }
-  
+
   .markdownArea>div{
     min-height:12ex;
     a{
@@ -88,7 +88,7 @@
     background: $fondosTitulosYBordes;
     height: 40px;
   }
-  .dropdown-menu{
+  .uib-dropdown-menu{
     width:75%;
   }
   li.active *{
@@ -102,11 +102,11 @@
 
 @media (max-width:400px){
   #inlineQuestion{
-    .dropdown-menu{
+    .uib-dropdown-menu{
       width:100%;
       min-width:0;
     }
   }
-  
+
 }
 

@@ -1,14 +1,14 @@
 'use strict'
 
 angular.module('crowdferenceApp', [
-  'crowdference',
   'ngTouch',
   'ui.bootstrap',
   'ngRoute',
   'pascalprecht.translate',
   'ga',
   'monospaced.elastic',
-  'hc.marked'
+  'hc.marked',
+  'ngSanitize'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -22,8 +22,9 @@ angular.module('crowdferenceApp', [
     msdElasticConfig.append = '\n\n';
   })
   .config(function ($translateProvider) {
+    $translateProvider.useSanitizeValueStrategy('escapeParameters')
     $translateProvider.useStaticFilesLoader({
-      prefix: '/assets/translations/',
+      prefix: 'https://rawgit.com/crowdference/babel/master/',
       suffix: '.json'
     })
     $translateProvider.fallbackLanguage('en')
@@ -44,7 +45,7 @@ angular.module('crowdferenceApp', [
       smartLists: true
     })
   })
-  .run(function ($rootScope, User, Question, Area, $location, $modal) {
+  .run(function ($rootScope, User, Question, Area, $location, /*$uibModal*/ $modal) {
     $rootScope.goToUser = function (user, area) {
       area = area || Area.view || {}
       User.view = user
@@ -64,14 +65,15 @@ angular.module('crowdferenceApp', [
       $location.path(area._url || '_')
     }
     $rootScope.canIedit = function (user) {
-      return User.user._id === user._id || User.user.users.indexOf(user._id) !== -1
+      return (Area.current && Area.current.permissions && Area.current.permissions.moderate) || (Question.view && Question.view.area && Question.view.area.permissions.moderate) || User.user._id === user._id || User.user.users.some(function (subuser) {
+        return subuser._id === user._id
+      })
     }
-
 
     $rootScope.Area = Area
 
     $rootScope.showVotes = function (votes) {
-      $modal.open({
+      /*$uibModal*/$modal.open({
         templateUrl: 'components/votes/showVotes.html',
         controller: function ($scope, $rootScope) {
           $scope.votes = votes

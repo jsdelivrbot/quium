@@ -2,8 +2,8 @@
   <img  style="width:150px" ng-src="{{user.image}}">
   <a target="_blank" ng-href="{{user.url}}">
     <h3>
-      <i class="fa fa-external-link"></i> 
-      <span ng-bind="user.url"></span> 
+      <i class="fa fa-external-link"></i>
+      <span ng-bind="user.url"></span>
       <br>
       <small ng-bind="user.name || user.nick || '---'"></small>
     </h3>
@@ -27,7 +27,7 @@
             <input
               class="form-control"
               ng-model="newManager"
-              typeahead="suggest for suggest in findUser($viewValue)"
+              uib-typeahead="suggest for suggest in findUser($viewValue)"
               typeahead-loading="cargando"
               typeahead-template-url="/components/inlineQuestion/suggest.html"
               typeahead-wait-ms="100"
@@ -36,7 +36,7 @@
               placeholder="usuario">
           </div>
         </li>
-      </ul>          
+      </ul>
     </div>
   </div>
 </div>

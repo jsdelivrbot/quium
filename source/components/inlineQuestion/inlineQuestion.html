@@ -4,7 +4,7 @@
     ng-keyup="enter($event)&&search()"
     ng-hide="question.target.url"
     ng-model="target"
-    typeahead="suggest for suggest in getSuggestions($viewValue)"
+    uib-typeahead="suggest for suggest in getSuggestions($viewValue)"
     typeahead-loading="cargando"
     typeahead-template-url="components/inlineQuestion/suggest.html"
     typeahead-wait-ms="100"
@@ -13,14 +13,14 @@
     placeholder="{{'inlineQuestion_target'|translate}}">
   </input>
 
-  <div ng-if="Area.custom.targets" class="target clickable dropdown dropdown-toggle" ng-click="updateTargets()" ng-hide="question.target.url">
+  <div ng-if="Area.custom.targets" class="target clickable" uib-dropdown uib-dropdown-toggle ng-click="updateTargets()" ng-hide="question.target.url">
     <div class="media">
       <span class="close"><i class="fa fa-chevron-down"></i></span>
       <div class="media-body">
-        <h4 class="media-heading">Selecciona el destinatario</h4>        
+        <h4 class="media-heading">Selecciona el destinatario</h4>
       </div>
     </div>
-    <ul class="dropdown-menu">
+    <ul class="uib-dropdown-menu">
       <li ng-repeat="target in targets">
         <div class="suggest" ng-click="select(target)">
           <div class="pull-left">
@@ -32,9 +32,9 @@
           <div class="clearfix"></div>
         </div>
       </li>
-    </ul>  
+    </ul>
   </div>
-  
+
   <div class="target" ng-show="question.target.url">
     <div class="media">
       <span class="close" ng-click="chooseAgain()">&times;</span>
@@ -42,15 +42,15 @@
         <img style="width:50px" class="media-object" ng-src="{{question.target.image}}" >
       </div>
       <div class="media-body">
-        <h4 class="media-heading">{{question.target.name || question.target.nick}}</h4>        
+        <h4 class="media-heading">{{question.target.name || question.target.nick}}</h4>
       </div>
     </div>
   </div>
-  
-  <markdown-area 
-    ng-model="question.question" 
-    placeholder="{{'inlineQuestion_question'|translate}}" 
-    active="questionActive"  
+
+  <markdown-area
+    ng-model="question.question"
+    placeholder="{{'inlineQuestion_question'|translate}}"
+    active="questionActive"
     editable="true"
   ></markdown-area>
 

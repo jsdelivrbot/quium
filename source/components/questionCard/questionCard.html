@@ -14,7 +14,8 @@
           <div class="serifa" style="color:#555" marked="question.question[question.question.length-1].question"></div>
         </div>
       </a>
-      <span class="date" class="pull-right" style="color:grey">{{question.questionTimestamp | date:'dd-MM-yyyy HH:mm'}} </span>
+      <span class="date pull-right" style="color:grey">{{question.questionTimestamp | date:'dd-MM-yyyy HH:mm'}} </span>
+      <span style="color:grey" translate="comments_count" translate-values="{count: question.comments.count}"> </span>
     </div>
   </div>
   <span class="pull-right questionCardBar" href="#">

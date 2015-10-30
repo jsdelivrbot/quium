@@ -76,6 +76,10 @@ angular.module('crowdferenceApp')
         controls.show(max)
 
         $scope.controls = controls
+
+        if (max === -1) {
+          controls.editing = {value: ''}
+        }
       }
     }
   })

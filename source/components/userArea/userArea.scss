@@ -12,8 +12,8 @@
     margin: 15px;
     width: 112px;
   }
-  
-  div{
+
+  &>div{
     position:absolute;
     top:15px;
     left:142px;
@@ -27,5 +27,7 @@
       overflow: hidden;
     }
   }
-
+  .user{
+    color: $fondosTitulosYBordes;
+  }
 }

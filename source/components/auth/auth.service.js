@@ -215,7 +215,7 @@ angular.module('crowdferenceApp')
           }
           if (response.status === 502) {
             $rootScope.outOfService = true
-          }          
+          }
           return $q.reject(response)
         },
         'response': function (response) {

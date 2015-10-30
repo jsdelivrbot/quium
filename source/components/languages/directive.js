@@ -7,7 +7,7 @@ angular.module('crowdferenceApp')
       restrict: 'E',
       replace: true,
       controller: function ($scope, $translate, $http) {
-        $http.get('/assets/translations/translations.json')
+        $http.get('https://rawgit.com/crowdference/babel/master/translations.json')
         .then(function (response) {
           $scope.translations = response.data
         })

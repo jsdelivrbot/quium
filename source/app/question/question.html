@@ -22,7 +22,7 @@
       </div>
       <div>
         <div class="responseArea" >
-          <div class="text" ng-if="question.isAnswered || canIanswer()" >
+          <div class="text" ng-if="question.isAnswered || canIedit(question.target)" >
             <history-editable save="save('answer', $value)" what="answer" history="question.answer" user="question.target"></history-editable>
           </div>
           <div ng-if="!question.isAnswered && !canIedit(question.target)" class="text">

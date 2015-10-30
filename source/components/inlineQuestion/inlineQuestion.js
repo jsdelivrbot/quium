@@ -25,14 +25,14 @@ angular.module('crowdferenceApp')
   $scope.Area = Area;
 
   $scope.status = 'searching';
-  
+
   $http.get('/api/search/' + question.target._id + '/all/target',{params:{topic:question.question}})
   .success(function(data){
     $scope.status = 'done';
     if(data.questions.length===0){
       $modalInstance.close();
     }
-    
+
     $scope.questions = data.questions;
   })
   .error(function(){
@@ -54,16 +54,28 @@ angular.module('crowdferenceApp')
     restrict: 'E',
     replace:true,
     scope:{},
-    controller: function($q, $scope, $http, $location, $element, $timeout, $modal, User, markdown, Area){
+    controller: function($q, $scope, $http, $location, $element, $timeout, $uibModal, User, markdown, Area){
 
       $scope.$watch(function(){
         return User.view._id
       }, function () {
-        if (User.view._id) {
+        if (!User.view._id) {
+          return
+        }
+        if (Area.current.custom && Area.current.custom.targets) {
+          $scope.updateTargets()
+          .then(function () {
+            if ($scope.targets.some(function (target) {
+              return User.view._id === target._id
+            })) {
+              $scope.question.target = User.view
+            }
+          })
+        }else {
           $scope.question.target = User.view
         }
       })
-      
+
       $scope.typesearch = {};
       $scope.isLogged = User.isLogged;
       $scope.markdown = markdown;
@@ -73,7 +85,7 @@ angular.module('crowdferenceApp')
       $scope.Area = Area.current;
       $scope.questionActive = true;
       $scope.updateTargets = function(){
-        $http.get('/api/area/'+Area.current.url+'/targets/typeahead?q=')
+        return $http.get('/api/area/'+Area.current.url+'/targets/typeahead?q=')
           .then(function(data){
             $scope.targets = data.data.targets;
           });
@@ -122,7 +134,7 @@ angular.module('crowdferenceApp')
           return;
         }
         if($scope.question.target._id){
-          var modalInstance = $modal.open({
+          var modalInstance = $uibModal.open({
             templateUrl: 'components/inlineQuestion/search.html',
             controller: 'inlineQuestionSearchCtrl',
             size: 'lg',

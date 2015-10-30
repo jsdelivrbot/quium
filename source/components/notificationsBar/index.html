@@ -6,7 +6,7 @@
       <span ng-show="user._id && user.notifications.length>1 && !user.more" translate="manyNotifications" translate-values="{count : user.notifications.length}"></span>
       <span ng-show="user._id && user.notifications.length>1 && user.more" translate="moreNotifications" translate-values="{count : user.notifications.length}"></span>
     </a>
-    <ul class="dropdown-menu">
+    <ul class="uib-dropdown-menu">
       <li ng-repeat="notification in user.notifications track by notification._id">
         <a notification="notification" read="removeNotification($index)"></a>
       </li>

@@ -37,9 +37,6 @@ angular.module('crowdferenceApp')
 
     $title($scope.question.question[$scope.maxIndex.question].question)
 
-    $scope.canIanswer = function () {
-      return $scope.user._id === $scope.question.target._id || $scope.user.users.indexOf($scope.question.target._id) !== -1
-    }
 
     $scope.popup = function (where) {
       $translate('share.text', {name: question.target.name}).then(function (text) {

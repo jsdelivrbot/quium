@@ -44,6 +44,13 @@
         <span>{{current.timestamp  |date : 'dd-MM-yyyy hh:mm'}} </span>
         <i ng-show="controls.editing" ng-click="controls.cancel()" class="fa fa-times"></i>
         <i ng-if="!controls.editing && $root.canIedit(comment.user)" ng-click="controls.edit()" class="fa fa-edit"></i>
+
+        <div ng-if="current.moderated" class="pull-right">
+          <span class="fa fa-gavel"></span>
+          <span translate="moderated"></span>
+        </div>
+
+
         <div class="pull-right">
           <i ng-show="controls.hasnext()" ng-click="controls.next()" class="fa fa-chevron-right"></i>
         </div>
